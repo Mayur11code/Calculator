@@ -132,7 +132,7 @@ function equal(screen, result, state) {
         state.num2 = '';
         state.prev = "";
         state.Num2exist = false;
-        if (Number.isInteger(state.num1)) {
+        if (Number.isInteger(state.num1)||state.num1== parseInt(state.num1)) {
             state.dec1 = 0;
         }
         state.dec2 = 0;
