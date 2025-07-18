@@ -1,112 +1,152 @@
-.body{
-   margin: 50px 50px; 
-    height: 340px;
+.body {
+    margin: 50px 50px;
+    height: 360px;
     width: 256px;
     border: 4px #f9b7a0 solid;
     border-radius: 10px;
     background-color: #ffd6c1;
-  
+
     box-shadow: 3px 3px 2px 2px #bc9191;
 }
 
-button{
+button {
     font-family: "Winky Rough", sans-serif;
     font-weight: 500;
     font-size: 25px;
 }
 
-.box{
-    display:flex;
+.box {
+    display: flex;
     /* justify-content: space-around; */
     gap: 12px;
-    
+
 }
 
-
-
-
-.keypad{
-    
-    display:flex;
-    flex-wrap: wrap;
-    flex-grow: 0;
-    /* flex-shrink: 0; */
-    margin: 5px 5px 5px 25px;
-    gap:5px;
-    max-width: 145px;
-    
-    
+.box button {
+    background-color: #cac1e2;
+    border: 2.8px solid rgb(145, 139, 208);
+    border-radius: 10px;
+    /* padding:0px 2px; */
+    box-shadow: inset 0px -2px 0px 0px #ffffff;
 }
 
-.screen{
+.box button:hover {
+    background-color: rgb(122 162 197 / 52%);
+
+
+}
+
+.screen {
     /* width:99px; */
-    height:50px;
+    height: 70px;
     border: 4px #f9b7a0 solid;
     border-radius: 10px;
     background-color: #ffe1d7;
     margin: 10px;
+    box-shadow: inset 0px 1px 3px 0px black;
+    text-align: right;
+    font-family: "Winky Rough", sans-serif;
+    font-weight: 500;
+    font-size: 30px;
+    padding-right: 3px;
+    padding-top: 5px;
+    /* overflow: hidden; */
+
 }
 
-.equal{
-    align-self: stretch;
-    width: 35px;
-    
-    
+
+.keypad {
+
+    display: flex;
+    flex-wrap: wrap;
+    flex-grow: 0;
+    /* flex-shrink: 0; */
+    margin: 5px 5px 5px 25px;
+    gap: 5px;
+    max-width: 145px;
+
+
 }
-.equate{
-    display:flex;
+
+.number {
+    padding: 3px 3px;
+    width: 35px;
+    flex-grow: 1;
+    flex-shrink: 0;
+
+
+}
+
+
+.equate .equal {
+    align-self: stretch;
+    width: 45px;
+    background-color: #b0bff5;
+
+
+}
+
+.equate {
+    display: flex;
     flex-shrink: 0;
     padding: 10px 0px;
 }
 
-.Operations{
-    margin:5px;
+.Operations {
+    margin: 5px;
     display: flex;
-    gap:7px;
-    height:40px;
+    gap: 7px;
+    height: 40px;
     /* justify-content: space-around; */
 }
 
-.Operations button{
+.Operations button {
     background-color: #ffb68a;
-    border:3px solid #ed9570;
+    border: 3px solid #ed9570;
     border-radius: 5px;
-    /* padding:2px;
-    height:25px; */
-    /* flex: 0 0 1; */
-    /* flex-basis: 0; */
     flex-grow: 0;
-   
     flex-basis: 100%;
     flex-shrink: 1;
-    
-}
-    
+    box-shadow: inset 0px -2px 2px 0px #ffffff;
 
-
-  
-
-.number{
-    padding:3px 3px;
-    width:35px;
-    flex-grow: 1;
-    flex-shrink: 0;
-
-    
 }
 
-.box button{
-    background-color:#cac1e2;
-    border:2.8px solid rgb(145, 139, 208);
+
+#C {
+    background-color: rgb(240, 144, 192);
+    border: 3px solid rgb(244, 97, 121);
+}
+
+.Operations button.clicked,
+.number.clicked,
+.equal.clicked {
+    box-shadow: inset 0px 1px 0px 0px rgb(78, 71, 71);
+    transition: 125ms;
+    padding-top: 7px;
+    font-size: 20.7px;
+}
+
+.content {
+    overflow: scroll;
+    margin: 0 10px;
+    padding: 0;
+    
+
+}
+
+.content::-webkit-scrollbar-thumb {
+
+    
+    background-color: rgb(226, 159, 43);
+    border:2px solid rgb(236, 22, 22);
     border-radius: 10px;
-    /* padding:0px 2px; */
-    box-shadow: inset 0px 0px 6px 0px #ffffff;
+
+}
+.content::-webkit-scrollbar {
+    margin: 10px;
+    height: 2px;
 }
 
-button:hover{
-    background-color: rgb(122 162 197 / 52%);
-    
-    
+.result{
+    padding: 0px 10px 20px 0px;
 }
-
-

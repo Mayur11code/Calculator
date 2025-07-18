@@ -2,45 +2,55 @@
 <html lang="en">
 
 <head>
+    <script src="script.js" defer></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="style.css" rel="stylesheet">
     <script src="script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap"
+        rel="stylesheet">
 
 </head>
 
 <body>
     <div class="body">
-        <div class="screen"></div>
-        <div class="Operations">
-            <button class="C">C</button>
-            <button class="+ operator">+</button>
-            <button class="- operator">-</button>
-            <button class="X operator">X</button>
-            <button class="/ operator">/</button>
+        <div class="screen">
+            <div class="content"> </div>
+            <div class="result"></div>
         </div>
-        <div class="box">
-            <div class="keypad">
-                <button class="9 number">9</button>
-                <button class="8 number">8</button>
-                <button class="7 number">7</button>
-                <button class="6 number">6</button>
-                <button class="5 number">5</button>
-                <button class="4 number">4</button>
-                <button class="3 number">3</button>
-                <button class="2 number">2</button>
-                <button class="1 number">1</button>
-                <button class="0 number">0</button>
-                <button class=". number">.</button>
-                <button class="magic number">M</button>
+        <div class="ui" id="UI">
+            <div class="Operations">
+                <button id="C" class="C">C</button>
+                <button class="+ operator show">+</button>
+                <button class="- operator show">-</button>
+                <button class="X operator show">X</button>
+                <button class="/ operator show">/</button>
             </div>
-            <div class="equate"><button class="equal">=</button></div>
+            <div class="box">
+                <div class="keypad">
+                    <button class="9 number show">9</button>
+                    <button class="8 number show">8</button>
+                    <button class="7 number show">7</button>
+                    <button class="6 number show">6</button>
+                    <button class="5 number show">5</button>
+                    <button class="4 number show">4</button>
+                    <button class="3 number show">3</button>
+                    <button class="2 number show">2</button>
+                    <button class="1 number show">1</button>
+                    <button class="0 number show">0</button>
+                    <button class=". number show">.</button>
+                    <button class="magic number">M</button>
+                </div>
+                <div class="equate"><button class="equal">=</button></div>
+            </div>
         </div>
     </div>
+
+
+
 </body>
 
 </html>
