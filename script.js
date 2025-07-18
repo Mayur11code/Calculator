@@ -1,18 +1,11 @@
-
-
-
-
+// RECORDS CHOICE
 function RecordChoice() {
-
-
-
     let num1 = '', num2 = '', Num2exist = false, prev = '';
     let OperationStatus = 0, dec1 = 0, dec2 = 0;
     let validNum1 = false;
-
     let state = { num1, num2, Num2exist, prev, OperationStatus, validNum1, dec1, dec2 };
-
     let choice;
+
     const pressed = document.querySelector(".ui");
 
     pressed.addEventListener("mousedown", (e) => {
@@ -21,28 +14,14 @@ function RecordChoice() {
     pressed.addEventListener("mouseup", (e) => {
         e.target.classList.remove("clicked");
     })
-    console.log(pressed);
-
-
     pressed.addEventListener("click", (e) => {
         choice = e.target.getAttribute("class");
         functions(choice, state);
 
     })
-
 }
-
-
-
-
-
+// PERFORMS ALL MENTIONED FUNCTIONS
 function functions(choice = '', state) {
-    // TEST--->
-    // console.log(state.num1)
-    // state.num1=2;
-    // console.log(state.num1);
-
-
     const screen = document.querySelector(".content")
     const result = document.querySelector(".result")
     if (choice.includes("magic")) magic(screen);
@@ -94,7 +73,6 @@ function functions(choice = '', state) {
     }
     else if (choice.includes("operator")) {
 
-
         if (state.Num2exist) {
             result.textContent = operation((state.prev), +state.num1, +state.num2);
             screen.textContent = result.textContent
@@ -111,10 +89,7 @@ function functions(choice = '', state) {
             screen.textContent = state.num1 + state.prev;
             if (result.textContent) screen.style.fontSize = "15px";
         }
-
-
-
-        else if ((choice.split(" ")[0] == '+' || choice.split(" ")[0] == '-') && !(state.validNum1)) {
+    else if ((choice.split(" ")[0] == '+' || choice.split(" ")[0] == '-') && !(state.validNum1)) {
             screen.textContent = choice.split(" ")[0];
             state.num1 = screen.textContent;
         }
@@ -132,15 +107,13 @@ function functions(choice = '', state) {
         state.prev='';
 
     }
-
     else if (choice == "equal") {
         equal(screen, result, state);
     }
 
 
 }
-
-
+// RESET FUNCTIONS
 function reset() {
     const screen = document.querySelector(".content")
     const result = document.querySelector(".result")
@@ -172,13 +145,11 @@ function operation(operator, a, b) {
         "/": a / b,
         "X": a * b,
     }
-
     return object[operator];
 }
-
+// MORE FEATURES SOON
 function magic(screen){
     screen.textContent="COMING SOON"
 }
-
 // STARTING THE CALCULATOR
 RecordChoice();
