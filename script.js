@@ -90,9 +90,7 @@ function functions(choice = '', state) {
             }
 
         }
-        else if (state.OperationStatus == 1 && prev == '') {
-
-        }
+        
     }
     else if (choice.includes("operator")) {
 
@@ -131,6 +129,7 @@ function functions(choice = '', state) {
         state.validNum1 = false;
         state.dec1=0;
         state.dec2=0;
+        state.prev='';
 
     }
 
