@@ -7,10 +7,10 @@ function RecordChoice() {
 
 
     let num1 = '', num2 = '', Num2exist = false, prev = '';
-    let OperationStatus = 0;
+    let OperationStatus = 0, dec1 = 0, dec2 = 0;
     let validNum1 = false;
 
-    let state = { num1, num2, Num2exist, prev, OperationStatus, validNum1 };
+    let state = { num1, num2, Num2exist, prev, OperationStatus, validNum1, dec1, dec2 };
 
     let choice;
     const pressed = document.querySelector(".ui");
@@ -45,21 +45,58 @@ function functions(choice = '', state) {
 
     const screen = document.querySelector(".content")
     const result = document.querySelector(".result")
+    if (choice.includes("magic")) magic(screen);
     if (choice.includes("number")) {
-        screen.textContent += choice.split(" ")[0];
-        if (state.OperationStatus == 0) {
-            state.num1 += choice.split(" ")[0];
-            state.validNum1 = true;
+
+        if (state.OperationStatus == 0 || (state.OperationStatus == 1 && state.prev == '')) {
+            if (result.textContent) result.textContent = '';
+            if (choice.includes(".")) {
+                if (state.dec1 == 0) {
+                    state.dec1 = 1;
+                    state.num1 += choice.split(" ")[0];
+                    state.validNum1 = true;
+                    screen.textContent = state.num1;
+                }
+                else if (state.dec1 == 1) {
+                    screen.textContent = state.num1;
+                    return
+
+                }
+
+            }
+            else {
+                state.num1 += choice.split(" ")[0];
+                state.validNum1 = true;
+                screen.textContent = state.num1;
+            }
         }
-        else if (state.OperationStatus == 1) {
-            state.num2 += choice.split(" ")[0];
-            state.Num2exist = true;
+        else if (state.OperationStatus == 1 && state.prev) {
+            if (choice.includes(".")) {
+                if (state.dec2 == 0) {
+                    state.dec2 = 1;
+                    state.num2 += choice.split(" ")[0];
+                    state.Num2exist = true;
+                    screen.textContent += choice.split(" ")[0]
+                }
+                else if (state.dec2 == 1) {
+                    return
+                }
+
+            }
+            else {
+                state.num2 += choice.split(" ")[0];
+                state.Num2exist = true;
+                screen.textContent += choice.split(" ")[0]
+            }
+
+        }
+        else if (state.OperationStatus == 1 && prev == '') {
 
         }
     }
     else if (choice.includes("operator")) {
 
-        
+
         if (state.Num2exist) {
             result.textContent = operation((state.prev), +state.num1, +state.num2);
             screen.textContent = result.textContent
@@ -91,6 +128,9 @@ function functions(choice = '', state) {
         state.num1 = '';
         state.num2 = '';
         state.Num2exist = false;
+        state.validNum1 = false;
+        state.dec1=0;
+        state.dec2=0;
 
     }
 
@@ -113,11 +153,18 @@ function reset() {
 }
 
 function equal(screen, result, state) {
-    screen.textContent = '';
-    result.textContent = operation((state.prev), +state.num1, +state.num2);
-    state.num1 = result.textContent
-    state.num2 = '';
-    state.Num2exist = false;
+    if (state.prev) {
+        screen.textContent = '';
+        result.textContent = operation((state.prev), +state.num1, +state.num2);
+        state.num1 = result.textContent
+        state.num2 = '';
+        state.prev = "";
+        state.Num2exist = false;
+        if (Number.isInteger(state.num1)) {
+            state.dec1 = 0;
+        }
+        state.dec2 = 0;
+    }
 }
 function operation(operator, a, b) {
     let object = {
@@ -130,7 +177,9 @@ function operation(operator, a, b) {
     return object[operator];
 }
 
+function magic(screen){
+    screen.textContent="COMING SOON"
+}
 
 // STARTING THE CALCULATOR
 RecordChoice();
-

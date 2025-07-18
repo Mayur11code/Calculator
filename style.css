@@ -1,4 +1,31 @@
+body{
+    background-color: #564a3b;
+    display: flex;
+    gap:150px;
+    
+}
+
+h1{
+
+    background-color: #f9b7a0;
+    text-align: center;
+    width: 250px;
+    border-radius: 25px;
+}
+
+.sidebar{
+    flex-shrink: 0;
+    width: 250px;
+    background-color: #b0bff5;
+    font-family:"Lato",sans-serif;
+    border-radius: 15px;
+    border:2px solid #b0bff5;
+    box-shadow: 1px 1px 1px 1px black;
+    padding: 20px;
+}
+
 .body {
+    flex-shrink: 0;
     margin: 50px 50px;
     height: 360px;
     width: 256px;
@@ -68,7 +95,7 @@ button {
 
 }
 
-.number {
+.number, .magic {
     padding: 3px 3px;
     width: 35px;
     flex-grow: 1;
@@ -150,3 +177,5 @@ button {
 .result{
     padding: 0px 10px 20px 0px;
 }
+
+
